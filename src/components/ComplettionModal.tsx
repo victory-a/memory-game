@@ -26,7 +26,7 @@ const CompletionModal = ({
       onDismiss={onClose}
       aria-labelledby="modal-title"
     >
-      <div className="relative w-full max-w-2xl mx-auto py-20 bg-white">
+      <div className="relative mx-auto w-full max-w-2xl bg-white py-20">
         <div className="absolute right-1 top-1">
           <button
             onClick={onClose}
@@ -36,9 +36,9 @@ const CompletionModal = ({
           </button>
         </div>
 
-        <section className="flex py-5 justify-center">
+        <section className="flex justify-center py-5">
           <div className="grid gap-2 text-background">
-            <h3 className="font-bold text-lg">Game Completed</h3>
+            <h3 className="text-lg font-bold">Game Completed</h3>
             <p>Total Clicks: {score}</p>
             {newBestScore ? (
               <p>🎉 Congrats on setting a new best Score! 🎉</p>

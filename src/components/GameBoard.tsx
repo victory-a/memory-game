@@ -37,7 +37,7 @@ const GameBoard = () => {
           {<p className="text-sm">Best: {bestScore ?? 'n/a'}</p>}
         </div>
       </header>
-      <h1 className="text-xl font-semibold my-1 text-center">
+      <h1 className="my-1 text-center text-xl font-semibold">
         Memory Matching Game
       </h1>
       <div className="flex flex-col items-center">
@@ -50,7 +50,7 @@ const GameBoard = () => {
       </div>
 
       <section className="flex flex-col items-center">
-        <div className="flex flex-wrap justify-center md:grid md:grid-cols-4 gap-3 mt-4">
+        <div className="mt-4 flex flex-wrap justify-center gap-3 md:grid md:grid-cols-4">
           {cards.map((card, i) => (
             <Card
               key={card.id}
@@ -64,7 +64,7 @@ const GameBoard = () => {
         </div>
         <button
           onClick={shuffleCards}
-          className="mt-4 text-foreground border border-foreground hover:text-background hover:bg-foreground py-2 px-4 rounded"
+          className="mt-4 rounded border border-foreground px-4 py-2 text-foreground hover:bg-foreground hover:text-background"
         >
           Restart Game
         </button>
