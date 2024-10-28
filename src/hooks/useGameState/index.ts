@@ -37,6 +37,7 @@ export function useGameState(uniquePairs: number = 8) {
     }
   };
 
+  // Register match if both selected cards have the same src attribute or unselect the cards 1000ms no match is found
   useEffect(() => {
     let timeoutId: number | undefined;
 
@@ -55,6 +56,7 @@ export function useGameState(uniquePairs: number = 8) {
     return () => clearTimeout(timeoutId);
   }, [state.selectedCards]);
 
+  // Trigger completed modal and set store clicks value if it's a  best score
   useEffect(() => {
     if (isGameCompleted) {
       setModalOpen(true);
@@ -67,6 +69,7 @@ export function useGameState(uniquePairs: number = 8) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGameCompleted, state.clicks]);
 
+  // Shuffle deck on intital mount and fetch current best score if any
   useEffect(() => {
     const storedBestScore = localStorage.getItem('bestScore');
 
