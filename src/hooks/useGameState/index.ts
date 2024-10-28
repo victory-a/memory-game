@@ -61,6 +61,7 @@ export function useGameState(uniquePairs: number = 8) {
         setNewBestScore(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGameCompleted, state.clicks]);
 
   useEffect(() => {
@@ -71,6 +72,7 @@ export function useGameState(uniquePairs: number = 8) {
     }
 
     shuffleCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {
