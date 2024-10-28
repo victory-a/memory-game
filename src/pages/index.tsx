@@ -18,7 +18,7 @@ const geistMono = localFont({
 const Home = () => {
   return (
     <div className={clsMerge(geistSans.variable, geistMono.variable)}>
-      <main className='min-h-screen flex justify-center items-center'>
+      <main className='min-h-screen p-4'>
         <GameBoard />
       </main>
     </div>

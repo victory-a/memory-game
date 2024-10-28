@@ -1,7 +1,7 @@
 import { useReducer, useEffect, useState } from 'react';
 import { Card, gameReducer, initialState } from './gameStateReducer';
 
-export function useGameState(uniquePairs: number = 4) {
+export function useGameState(uniquePairs: number = 8) {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
   const [bestScore, setBestScore] = useState<number | null>(null);
