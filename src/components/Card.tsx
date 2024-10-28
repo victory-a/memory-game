@@ -41,7 +41,6 @@ const CardComponent = ({
           flipped ? 'rotate-y-90' : 'rotate-y-0',
           disabled ? '' : 'cursor-pointer'
         )}
-        aria-label="card cover"
         onClick={onClick}
       />
     </article>

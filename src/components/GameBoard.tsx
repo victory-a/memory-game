@@ -52,7 +52,7 @@ const GameBoard = () => {
         <ul className="text-center">
           <li>Click on card to reveal image</li>
           <li>Only 2 cards can be flipped at a time</li>
-          <p>Match all card pairs to complete the game</p>
+          <li>Match all card pairs to complete the game</li>
         </ul>
       </div>
 
