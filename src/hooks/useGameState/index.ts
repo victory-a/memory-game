@@ -15,8 +15,7 @@ export function useGameState(uniquePairs: number = 8) {
       { src: image, id: index * 2, matched: false },
       { src: image, id: index * 2 + 1, matched: false },
     ]);
-    
-    localStorage.setItem('bestScore', String(state.clicks));
+
     const shuffledCards = cards.sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
     dispatch({ type: 'SHUFFLE_CARDS', payload: shuffledCards });
     setNewBestScore(false);
@@ -29,20 +28,24 @@ export function useGameState(uniquePairs: number = 8) {
   };
 
   useEffect(() => {
+    let timeoutId: number | undefined;
+
     if (state.selectedCards.length === 2) {
       const [first, second] = state.selectedCards;
       if (first.src === second.src) {
         dispatch({ type: 'MATCH_CARDS' });
       } else {
-        setTimeout(() => dispatch({ type: 'CLOSE_CARDS' }), 1000);
+        timeoutId = window.setTimeout(() => dispatch({ type: 'CLOSE_CARDS' }), 1000);
       }
     }
+
+    return () => clearTimeout(timeoutId);
   }, [state.selectedCards]);
 
   useEffect(() => {
     if (isGameCompleted) {
       if (bestScore === null || state.clicks < bestScore) {
-        // localStorage.setItem('bestScore', String(state.clicks));
+        localStorage.setItem('bestScore', String(state.clicks));
         setBestScore(state.clicks);
         setNewBestScore(true);
       }
@@ -51,7 +54,6 @@ export function useGameState(uniquePairs: number = 8) {
 
   useEffect(() => {
     const storedBestScore = localStorage.getItem('bestScore');
-    console.log({ storedBestScore });
 
     if (storedBestScore) {
       setBestScore(Number(storedBestScore));
@@ -67,7 +69,6 @@ export function useGameState(uniquePairs: number = 8) {
     disabled: state.disabled,
     handleClick,
     shuffleCards,
-    isGameCompleted,
     bestScore,
     newBestScore,
   };

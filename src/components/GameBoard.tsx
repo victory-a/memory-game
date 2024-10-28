@@ -2,8 +2,8 @@ import React from 'react';
 import Card from './Card';
 import { useGameState } from '@/hooks/useGameState';
 
-const GameBoard: React.FC = () => {
-  const { cards, clicks, selectedCards, handleClick, shuffleCards, disabled, isGameCompleted, bestScore, newBestScore } = useGameState();
+const GameBoard = () => {
+  const { cards, clicks, selectedCards, handleClick, shuffleCards, disabled, bestScore, newBestScore } = useGameState();
 
   return (
     <div className='flex flex-col items-center'>
