@@ -1,10 +1,26 @@
 import React from 'react';
-import GameBoard from '../components/GameBoard';
+import localFont from 'next/font/local';
 
-const Home: React.FC = () => {
+import GameBoard from '../components/GameBoard';
+import { clsMerge } from '@/utils/classname-merge';
+
+const geistSans = localFont({
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+});
+const geistMono = localFont({
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+});
+
+const Home = () => {
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
-      <GameBoard />
+    <div className={clsMerge(geistSans.variable, geistMono.variable)}>
+      <main className='min-h-screen flex justify-center items-center'>
+        <GameBoard />
+      </main>
     </div>
   );
 };

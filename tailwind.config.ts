@@ -8,6 +8,10 @@ const config: Config = {
         visible: 'visible',
         hidden: 'hidden',
       },
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+      },
     },
   },
   plugins: [],

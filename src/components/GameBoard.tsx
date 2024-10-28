@@ -7,10 +7,10 @@ const GameBoard = () => {
 
   return (
     <div className='flex flex-col items-center'>
-      <h1 className='text-3xl mb-4'>Memory Matching Game</h1>
-      <p>Clicks: {clicks}</p>
-      {<div className='mt-4'>{newBestScore ? <p>🎉 New Best Score! 🎉</p> : <p>Best Score: {bestScore} clicks</p>}</div>}
-      <div className='grid grid-cols-4 gap-2'>
+      <h1 className='text-xl font-semibold mb-2'>Memory Matching Game</h1>
+      <p className='mb-2'>Clicks: {clicks}</p>
+      {<div>{newBestScore ? <p>🎉 New Best Score! 🎉</p> : <p>Best Score: {bestScore}</p>}</div>}
+      <div className='grid grid-cols-4 gap-2 mt-4'>
         {cards.map((card) => (
           <Card
             key={card.id}
