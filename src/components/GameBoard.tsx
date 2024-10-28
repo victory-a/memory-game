@@ -49,7 +49,7 @@ const GameBoard = () => {
         </ul>
       </div>
 
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center" aria-label="card grid">
         <div className="mt-4 flex flex-wrap justify-center gap-3 md:grid md:grid-cols-4">
           {cards.map((card, i) => (
             <Card

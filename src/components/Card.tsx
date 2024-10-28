@@ -19,7 +19,7 @@ const CardComponent = ({
   index,
 }: CardProps) => {
   return (
-    <div
+    <article
       style={{ '--index': index } as React.CSSProperties}
       className="card-animation relative h-full w-full max-w-[180px] md:max-w-[180px]"
     >
@@ -43,7 +43,7 @@ const CardComponent = ({
         aria-label="card cover"
         onClick={onClick}
       />
-    </div>
+    </article>
   );
 };
 
