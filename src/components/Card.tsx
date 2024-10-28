@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+
 import { Card } from '@/hooks/useGameState/gameStateReducer';
 import { clsMerge } from '@/utils/classname-merge';
 

@@ -1,4 +1,6 @@
 import { useReducer, useEffect, useState } from 'react';
+import { enqueueSnackbar } from 'notistack';
+
 import { Card, gameReducer, initialState } from './gameStateReducer';
 
 export function useGameState(uniquePairs: number = 8) {
@@ -31,6 +33,7 @@ export function useGameState(uniquePairs: number = 8) {
   const handleClick = (card: Card) => {
     if (state.selectedCards.length < 2) {
       dispatch({ type: 'SELECT_CARD', payload: card });
+      enqueueSnackbar('Card Flipped');
     }
   };
 

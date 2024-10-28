@@ -1,9 +1,8 @@
-import { Dialog as ReachDialog } from '@reach/dialog';
 import React from 'react';
-
-import '@reach/dialog/styles.css';
+import { Dialog as ReachDialog } from '@reach/dialog';
 
 import CancelIcon from '@/assets/CancelIcon';
+import '@reach/dialog/styles.css';
 
 interface ModalProps {
   isOpen: boolean;

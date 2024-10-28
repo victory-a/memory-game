@@ -1,6 +1,9 @@
 import React from 'react';
-import Card from './Card';
+import { enqueueSnackbar } from 'notistack';
+
 import { useGameState } from '@/hooks/useGameState';
+
+import Card from './Card';
 import CompletionModal from './ComplettionModal';
 
 const GameBoard = () => {
@@ -27,6 +30,11 @@ const GameBoard = () => {
         bestScore={bestScore}
       />
     );
+  }
+
+  function handleShuffle() {
+    enqueueSnackbar('Cards Reshuffled');
+    shuffleCards();
   }
   return (
     <>
@@ -62,7 +70,7 @@ const GameBoard = () => {
           ))}
         </div>
         <button
-          onClick={shuffleCards}
+          onClick={handleShuffle}
           className="mt-4 rounded border border-foreground px-4 py-2 text-foreground hover:bg-foreground hover:text-background"
         >
           Restart Game
