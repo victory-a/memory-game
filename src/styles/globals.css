@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #fff;
-  --foreground: #10172A;
+  --background: #10172A;
+  --foreground: #fff;
 }
 
 body {
@@ -39,4 +39,22 @@ body {
     scale: 0.8;
     opacity: 0;
   }
+}
+
+/* Reach Dialog customizations */
+[data-reach-dialog-content] {
+  position: relative;
+  padding-top: 2rem;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  width: 95% !important;
+  max-width: 1200px;
+  background: transparent !important;
+  margin: 50px auto !important;
+  margin-bottom: 0px !important;
+}
+
+[data-reach-dialog-overlay] {
+  backdrop-filter: blur(1px);
+  background-color: rgba(0, 0, 0, 0.5);
 }

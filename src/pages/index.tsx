@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import localFont from 'next/font/local';
 
 import GameBoard from '../components/GameBoard';
@@ -17,11 +18,18 @@ const geistMono = localFont({
 
 const Home = () => {
   return (
-    <div className={clsMerge(geistSans.variable, geistMono.variable)}>
-      <main className='min-h-screen p-4'>
-        <GameBoard />
-      </main>
-    </div>
+    <>
+      <Head>
+        <title>Memory Card Game</title>
+        <meta name='description' content='Memory Card Game' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+      </Head>
+      <div className={clsMerge(geistSans.variable, geistMono.variable)}>
+        <main className='min-h-screen p-4'>
+          <GameBoard />
+        </main>
+      </div>
+    </>
   );
 };
 

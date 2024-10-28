@@ -4,6 +4,8 @@ import { Card, gameReducer, initialState } from './gameStateReducer';
 export function useGameState(uniquePairs: number = 8) {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
+  const [modalOpen, setModalOpen] = useState(false);
+
   const [bestScore, setBestScore] = useState<number | null>(null);
   const [newBestScore, setNewBestScore] = useState(false);
 
@@ -45,6 +47,7 @@ export function useGameState(uniquePairs: number = 8) {
 
   useEffect(() => {
     if (isGameCompleted) {
+      setModalOpen(true);
       if (bestScore === null || bestScore === 0 || state.clicks < bestScore) {
         localStorage.setItem('bestScore', String(state.clicks));
         setBestScore(state.clicks);
@@ -73,5 +76,7 @@ export function useGameState(uniquePairs: number = 8) {
     bestScore,
     newBestScore,
     isGameCompleted,
+    modalOpen,
+    setModalOpen,
   };
 }

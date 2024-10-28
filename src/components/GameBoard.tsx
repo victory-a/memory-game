@@ -1,14 +1,20 @@
 import React from 'react';
 import Card from './Card';
 import { useGameState } from '@/hooks/useGameState';
+import CompletionModal from './ComplettionModal';
 
 const GameBoard = () => {
-  const { cards, clicks, selectedCards, handleClick, shuffleCards, disabled, bestScore, newBestScore, isGameCompleted } = useGameState();
+  const { cards, clicks, selectedCards, handleClick, shuffleCards, disabled, newBestScore, bestScore, isGameCompleted, modalOpen, setModalOpen } =
+    useGameState();
 
+  if (modalOpen) {
+    return (
+      <CompletionModal isOpen={modalOpen} onClose={() => setModalOpen(false)} score={clicks} newBestScore={newBestScore} bestScore={bestScore} />
+    );
+  }
   return (
     <>
       <header>
-        {/* <div>{isGameCompleted ? newBestScore ? <p>🎉 New Best Score! 🎉</p> : <p>Try again 😌</p> : <p>Best Score: {bestScore}</p>}</div> */}
         <div className='flex justify-end gap-2'>
           <p className='text-sm'>Clicks: {clicks}</p>
           {<p className='text-sm'>Best: {bestScore ?? 'n/a'}</p>}
@@ -17,7 +23,8 @@ const GameBoard = () => {
       <h1 className='text-xl font-semibold my-1 text-center'>Memory Matching Game</h1>
       <div className='flex flex-col items-center'>
         <h2 className='font-semibold'>Instructions</h2>
-        <ul className='text-sm'>
+        <ul className='text-center'>
+          <li>Click on card to reveal image</li>
           <li>Only 2 cards can be flipped at a time</li>
           <p>Match all card pairs to complete the game</p>
         </ul>
