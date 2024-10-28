@@ -82,7 +82,6 @@ export function useGameState(uniquePairs: number = 8) {
     shuffleCards,
     bestScore,
     newBestScore,
-    isGameCompleted,
     modalOpen,
     setModalOpen,
   };

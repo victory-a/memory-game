@@ -13,7 +13,6 @@ const GameBoard = () => {
     disabled,
     newBestScore,
     bestScore,
-    isGameCompleted,
     modalOpen,
     setModalOpen,
   } = useGameState();
