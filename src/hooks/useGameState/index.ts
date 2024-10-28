@@ -1,7 +1,7 @@
 import { useReducer, useEffect, useState } from 'react';
 import { Card, gameReducer, initialState } from './gameStateReducer';
 
-export function useGameState(uniquePairs: number = 8) {
+export function useGameState(uniquePairs: number = 4) {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
   const [bestScore, setBestScore] = useState<number | null>(null);
@@ -12,7 +12,7 @@ export function useGameState(uniquePairs: number = 8) {
   const shuffleCards = () => {
     // generate 2 unique pairs for each image with respect to the epecified initializer (uniquePairs)
     const images = Array.from({ length: uniquePairs }).map((_, index) => `https://picsum.photos/200?random=${index}`);
-    const cards = images.flatMap((image, index) => [
+    const cards = images.flatMap((image) => [
       { src: image, id: crypto.randomUUID(), matched: false },
       { src: image, id: crypto.randomUUID(), matched: false },
     ]);
@@ -45,7 +45,7 @@ export function useGameState(uniquePairs: number = 8) {
 
   useEffect(() => {
     if (isGameCompleted) {
-      if (bestScore === null || state.clicks < bestScore) {
+      if (bestScore === null || bestScore === 0 || state.clicks < bestScore) {
         localStorage.setItem('bestScore', String(state.clicks));
         setBestScore(state.clicks);
         setNewBestScore(true);
@@ -72,5 +72,6 @@ export function useGameState(uniquePairs: number = 8) {
     shuffleCards,
     bestScore,
     newBestScore,
+    isGameCompleted,
   };
 }
