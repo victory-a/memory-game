@@ -43,10 +43,10 @@ export function useGameState(uniquePairs: number = 8) {
     if (state.selectedCards.length === 2) {
       const [first, second] = state.selectedCards;
       if (first.src === second.src) {
-        dispatch({ type: 'MATCH_CARDS' });
+        dispatch({ type: 'FOUND_MATCH' });
       } else {
         timeoutId = window.setTimeout(
-          () => dispatch({ type: 'CLOSE_CARDS' }),
+          () => dispatch({ type: 'UNSELECT_CARDS' }),
           1000
         );
       }

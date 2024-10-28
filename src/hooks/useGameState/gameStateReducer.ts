@@ -14,8 +14,8 @@ interface GameState {
 type Action =
   | { type: 'SHUFFLE_CARDS'; payload: Card[] }
   | { type: 'SELECT_CARD'; payload: Card }
-  | { type: 'MATCH_CARDS' }
-  | { type: 'CLOSE_CARDS' };
+  | { type: 'FOUND_MATCH' }
+  | { type: 'UNSELECT_CARDS' };
 
 const initialState: GameState = {
   cards: [],
@@ -33,14 +33,17 @@ function gameReducer(state: GameState, action: Action): GameState {
         clicks: 0,
         selectedCards: [],
       };
+
     case 'SELECT_CARD':
       return {
         ...state,
         selectedCards: [...state.selectedCards, action.payload],
-        disabled: state.selectedCards.length === 1, // Disable if 2 cards are selected
+        disabled: state.selectedCards.length === 1, // Allow selection of only 2 cards
         clicks: state.clicks + 1,
       };
-    case 'MATCH_CARDS':
+
+    case 'FOUND_MATCH':
+      //  FOUND_MATCH is only triggered when the two selected cards same (card.src), we update the match attribute for thiose cards to true
       return {
         ...state,
         cards: state.cards.map((card) =>
@@ -51,7 +54,8 @@ function gameReducer(state: GameState, action: Action): GameState {
         selectedCards: [],
         disabled: false,
       };
-    case 'CLOSE_CARDS':
+
+    case 'UNSELECT_CARDS':
       return { ...state, selectedCards: [], disabled: false };
     default:
       return state;
