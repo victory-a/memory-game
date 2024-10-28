@@ -31,7 +31,7 @@ const GameBoard = () => {
       </div>
 
       <section className='flex flex-col items-center'>
-        <div className='flex flex-wrap justify-center md:grid md:grid-cols-4 gap-2 mt-4'>
+        <div className='flex flex-wrap justify-center md:grid md:grid-cols-4 gap-3 mt-4'>
           {cards.map((card, i) => (
             <Card
               key={card.id}
