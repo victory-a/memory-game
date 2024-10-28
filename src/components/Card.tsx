@@ -21,10 +21,10 @@ const CardComponent = ({
   return (
     <article
       style={{ '--index': index } as React.CSSProperties}
-      className="card-animation relative h-full w-full max-w-[180px] md:max-w-[180px]"
+      className="card-animation relative h-full w-full max-w-[150px] md:max-w-[180px]"
     >
       <Image
-        width={180}
+        width={150}
         height={120}
         className={clsMerge(
           'backface-hidden absolute h-full w-full transform rounded-md transition-all duration-200 ease-in',
@@ -36,7 +36,7 @@ const CardComponent = ({
 
       <div
         className={clsMerge(
-          'backface-hidden h-[120px] w-[180px] transform rounded-md bg-foreground transition-transform delay-200 duration-200 ease-in',
+          'backface-hidden h-[120px] w-[150px] transform rounded-md bg-foreground transition-transform delay-200 duration-200 ease-in',
           flipped ? 'rotate-y-90' : 'rotate-y-0',
           disabled ? '' : 'cursor-pointer'
         )}
