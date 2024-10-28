@@ -11,7 +11,11 @@ interface GameState {
   disabled: boolean;
 }
 
-type Action = { type: 'SHUFFLE_CARDS'; payload: Card[] } | { type: 'SELECT_CARD'; payload: Card } | { type: 'MATCH_CARDS' } | { type: 'CLOSE_CARDS' };
+type Action =
+  | { type: 'SHUFFLE_CARDS'; payload: Card[] }
+  | { type: 'SELECT_CARD'; payload: Card }
+  | { type: 'MATCH_CARDS' }
+  | { type: 'CLOSE_CARDS' };
 
 const initialState: GameState = {
   cards: [],
@@ -23,7 +27,12 @@ const initialState: GameState = {
 function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
     case 'SHUFFLE_CARDS':
-      return { ...initialState, cards: action.payload, clicks: 0, selectedCards: [] };
+      return {
+        ...initialState,
+        cards: action.payload,
+        clicks: 0,
+        selectedCards: [],
+      };
     case 'SELECT_CARD':
       return {
         ...state,
@@ -34,7 +43,11 @@ function gameReducer(state: GameState, action: Action): GameState {
     case 'MATCH_CARDS':
       return {
         ...state,
-        cards: state.cards.map((card) => (state.selectedCards.some((selected) => selected.src === card.src) ? { ...card, matched: true } : card)),
+        cards: state.cards.map((card) =>
+          state.selectedCards.some((selected) => selected.src === card.src)
+            ? { ...card, matched: true }
+            : card
+        ),
         selectedCards: [],
         disabled: false,
       };

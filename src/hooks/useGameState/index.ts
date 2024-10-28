@@ -9,11 +9,15 @@ export function useGameState(uniquePairs: number = 8) {
   const [bestScore, setBestScore] = useState<number | null>(null);
   const [newBestScore, setNewBestScore] = useState(false);
 
-  const isGameCompleted = Boolean(state.cards.length && state.cards.every((card) => card.matched));
+  const isGameCompleted = Boolean(
+    state.cards.length && state.cards.every((card) => card.matched)
+  );
 
   const shuffleCards = () => {
     // generate 2 unique pairs for each image with respect to the epecified initializer (uniquePairs)
-    const images = Array.from({ length: uniquePairs }).map((_, index) => `https://picsum.photos/200?random=${index}`);
+    const images = Array.from({ length: uniquePairs }).map(
+      (_, index) => `https://picsum.photos/200?random=${index}`
+    );
     const cards = images.flatMap((image) => [
       { src: image, id: crypto.randomUUID(), matched: false },
       { src: image, id: crypto.randomUUID(), matched: false },
@@ -38,7 +42,10 @@ export function useGameState(uniquePairs: number = 8) {
       if (first.src === second.src) {
         dispatch({ type: 'MATCH_CARDS' });
       } else {
-        timeoutId = window.setTimeout(() => dispatch({ type: 'CLOSE_CARDS' }), 1000);
+        timeoutId = window.setTimeout(
+          () => dispatch({ type: 'CLOSE_CARDS' }),
+          1000
+        );
       }
     }
 

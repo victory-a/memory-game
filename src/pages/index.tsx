@@ -21,11 +21,11 @@ const Home = () => {
     <>
       <Head>
         <title>Memory Matching Game</title>
-        <meta name='description' content='Memory Matching Game' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name="description" content="Memory Matching Game" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className={clsMerge(geistSans.variable, geistMono.variable)}>
-        <main className='min-h-screen p-4'>
+        <main className="min-h-screen p-4">
           <GameBoard />
         </main>
       </div>

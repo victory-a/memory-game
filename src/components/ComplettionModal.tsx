@@ -13,21 +13,32 @@ interface ModalProps {
   bestScore: number | null;
 }
 
-const CompletionModal = ({ isOpen, onClose, bestScore, newBestScore, score }: ModalProps) => {
+const CompletionModal = ({
+  isOpen,
+  onClose,
+  bestScore,
+  newBestScore,
+  score,
+}: ModalProps) => {
   return (
-    <ReachDialog isOpen={isOpen} onDismiss={onClose} aria-labelledby='modal-title'>
-      <div className='relative w-full max-w-2xl mx-auto py-20 bg-white'>
-        <div className='absolute right-1 top-1'>
+    <ReachDialog
+      isOpen={isOpen}
+      onDismiss={onClose}
+      aria-labelledby="modal-title"
+    >
+      <div className="relative w-full max-w-2xl mx-auto py-20 bg-white">
+        <div className="absolute right-1 top-1">
           <button
             onClick={onClose}
-            className='hover:bg-grey-700 relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-[4px] hover:opacity-70'>
+            className="hover:bg-grey-700 relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-[4px] hover:opacity-70"
+          >
             <CancelIcon />
           </button>
         </div>
 
-        <section className='flex py-5 justify-center'>
-          <div className='grid gap-2 text-background'>
-            <h3 className='font-bold text-lg'>Game Completed</h3>
+        <section className="flex py-5 justify-center">
+          <div className="grid gap-2 text-background">
+            <h3 className="font-bold text-lg">Game Completed</h3>
             <p>Total Clicks: {score}</p>
             {newBestScore ? (
               <p>🎉 Congrats on setting a new best Score! 🎉</p>
