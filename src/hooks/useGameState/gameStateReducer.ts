@@ -1,5 +1,5 @@
 interface Card {
-  id: number;
+  id: string;
   src: string;
   matched: boolean;
 }

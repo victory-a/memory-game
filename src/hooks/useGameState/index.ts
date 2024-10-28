@@ -10,13 +10,14 @@ export function useGameState(uniquePairs: number = 8) {
   const isGameCompleted = Boolean(state.cards.length && state.cards.every((card) => card.matched));
 
   const shuffleCards = () => {
+    // generate 2 unique pairs for each image with respect to the epecified initializer (uniquePairs)
     const images = Array.from({ length: uniquePairs }).map((_, index) => `https://picsum.photos/200?random=${index}`);
     const cards = images.flatMap((image, index) => [
-      { src: image, id: index * 2, matched: false },
-      { src: image, id: index * 2 + 1, matched: false },
+      { src: image, id: crypto.randomUUID(), matched: false },
+      { src: image, id: crypto.randomUUID(), matched: false },
     ]);
 
-    const shuffledCards = cards.sort(() => Math.random() - 0.5).map((card) => ({ ...card, id: Math.random() }));
+    const shuffledCards = cards.sort(() => Math.random() - 0.5);
     dispatch({ type: 'SHUFFLE_CARDS', payload: shuffledCards });
     setNewBestScore(false);
   };
