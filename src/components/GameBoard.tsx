@@ -15,7 +15,7 @@ const GameBoard = () => {
         </div>
       </header>
       <h1 className='text-xl font-semibold my-1 text-center'>Memory Matching Game</h1>
-      <div className='flex flex-col sm:items-center'>
+      <div className='flex flex-col items-center'>
         <h2 className='font-semibold'>Instructions</h2>
         <ul className='text-sm'>
           <li>Only 2 cards can be flipped at a time</li>
@@ -36,7 +36,9 @@ const GameBoard = () => {
             />
           ))}
         </div>
-        <button onClick={shuffleCards} className='mt-4 text-foreground border border-foreground hover:text-background hover:bg-foreground py-2 px-4 rounded'>
+        <button
+          onClick={shuffleCards}
+          className='mt-4 text-foreground border border-foreground hover:text-background hover:bg-foreground py-2 px-4 rounded'>
           Restart Game
         </button>
       </section>
