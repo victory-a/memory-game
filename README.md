@@ -52,4 +52,4 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Live [URL](https://.vercel.app/)
+Live [URL](https://memory-game-victory-asokomeh.vercel.app/)
