@@ -2,14 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Memory Matching Game
 
-- Leaderboard Tracking
-- Image Optimization
-- Restart Functionality
-- Responsive Layout
-
 ## Features
 
-- Implement automated testing
+- Leaderboard Tracking
+- Restart Functionality
+- Responsive Layout
 
 ### Possible Improvements
 
