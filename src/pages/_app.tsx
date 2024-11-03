@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }}
       variant="info"
     >
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </SnackbarProvider>
   );
 }
