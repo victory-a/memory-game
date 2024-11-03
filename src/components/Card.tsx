@@ -39,7 +39,7 @@ const CardComponent = ({
         className={clsMerge(
           'backface-hidden h-[120px] w-[150px] transform rounded-md bg-foreground transition-transform delay-200 duration-200 ease-in',
           flipped ? 'rotate-y-90' : 'rotate-y-0',
-          disabled ? '' : 'cursor-pointer'
+          disabled ? '' : 'cursor-pointer hover:opacity-90'
         )}
         onClick={onClick}
       />
